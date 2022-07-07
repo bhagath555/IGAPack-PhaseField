@@ -64,8 +64,8 @@ for istep = 1:Integ.nstep+1
             dgdx,shape,Fract,Mater,volume,geometry,fenerg,tdisp);
         solPhiOld = solPhi;
         solPhi = stiffPhiPhi\RHSPhi;
-        normInnerStep = norm(stiffPhiPhi*solPhiOld-RHSPhi)/norm(RHSPhi)
-        miter = miter + 1
+        normInnerStep = norm(stiffPhiPhi*solPhiOld-RHSPhi)/norm(RHSPhi);
+        miter = miter + 1;
         tdisp(2*sizeBasis+1:end) = solPhi;
         clear stiffPhiPhi RHSPhi solPhiOld
         

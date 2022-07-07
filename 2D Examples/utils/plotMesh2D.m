@@ -8,7 +8,7 @@ if nargin < 4
 end
 % We define colors for up to 6 patches
 colorArray = {'blue', 'red', 'green', 'cyan', 'magenta', 'black'};
-
+colordot = {'k.', 'ro', 'g+', 'b*', 'm^'};
 numPts = 11; %number of plot points to use on each edge
 uref = linspace(-1,1,numPts);
 vref = linspace(-1,1,numPts);
@@ -42,7 +42,8 @@ for patchIndex = 1:numPatches
             nodes = PHTelem{patchIndex}(i).nodes(1:nument);
             cpts = controlPts{patchIndex}(nodes, 1:2);
             wgts = controlPts{patchIndex}(nodes, 3);
-%             plot(cpts(:,1),cpts(:,2),'.r')
+            plot(cpts(:,1),cpts(:,2), 'r.', 'MarkerSize', 5);
+            hold on;
             for j=1:numPts
                 %compute the points on the element south edge
                 N = squeeze(R(j,1,:));
